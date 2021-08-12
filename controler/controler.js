@@ -2,14 +2,21 @@ const Meal = require("../model/meals");
 
 class MealsController {
   async store(req, res) {
-    const data = await Meal.create(req.body);
+    try {  
+        const data = await Meal.create(req.body);
+        return res.json(data);
+    } catch (err) {
+       return {"Error":err}
+  }
 
-    return res.json(data);
   }
   async index(req, res) {
-    const data = await Meal.find({});
-
-    return res.json(data);
+    try {
+      const data = await Meal.find({});
+      return res.json(data);
+    } catch (err) {
+      return {"Error":err}
+    }
   }
 }
 
