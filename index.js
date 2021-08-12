@@ -17,7 +17,7 @@ class App {
 
   database() {
     mongoose.Promise = global.Promise;
-    mongoose.connect(db.uri, { useNewUrlParser: true });
+    mongoose.connect(db.uri, { useNewUrlParser: true }).catch(err => console.log(err));
   }
 
   middlewares() {
