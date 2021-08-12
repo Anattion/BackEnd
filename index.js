@@ -3,12 +3,14 @@ const db = require("./database/config");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+
 class App {
   constructor() {
     this.express = express();
     this.database();
     this.middlewares();
     this.routes();
+    this.express.use(cors());
 
     this.express.listen(3001, () =>
       console.log(`Sua API REST está funcionando na porta 3001 `)
@@ -28,4 +30,5 @@ class App {
     this.express.use(require("./routes"));
   }
 }
+
 module.exports = new App().express;
