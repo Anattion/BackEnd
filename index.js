@@ -12,9 +12,7 @@ class App {
     this.routes();
     this.express.use(cors());
 
-    this.express.listen(process.env.PORT || 3001, () =>
-      console.log(`Sua API REST está funcionando na porta `+process.env.PORT || 3001)
-    );
+    this.express.listen(process.env.PORT || 3001)
   }
 
   database() {
