@@ -10,7 +10,10 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
-    this.express.use(cors());
+    this.express.use(cors({
+      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+      origin: '*'
+  }));
 
     this.express.listen(process.env.PORT || 3001)
   }
