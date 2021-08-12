@@ -9,11 +9,7 @@ class App {
     this.express = express();
     this.database();
     this.middlewares();
-    this.routes();
-    this.express.use(cors({
-      methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
-      origin: '*'
-  }));
+    this.routes()
 
     this.express.listen(process.env.PORT || 3001)
   }
@@ -24,7 +20,11 @@ class App {
   }
 
   middlewares() {
-    this.express.use(express.json());
+     this.express.use(cors({
+        methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+         origin: '*'
+      }));
+     this.express.use(express.json());
   }
 
   routes() {
