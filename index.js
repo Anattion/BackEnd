@@ -17,7 +17,7 @@ class App {
 
   database() {
     mongoose.Promise = global.Promise;
-    mongoose.connect(db.uri, { useNewUrlParser: true }).catch(err => console.log(err));
+    mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true }).catch(err => console.log(err));
   }
 
   middlewares() {
